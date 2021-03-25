@@ -908,6 +908,9 @@ int luaopen_create(lua_State *L) {
         lua_setfield(L, -2, cmds[i].name);
     }
 
+    /* Set msgpack.null */
+    lua_pushlightuserdata(L, NULL);
+    lua_setfield(L, -2, "NULL");
     /* Add metadata */
     lua_pushliteral(L, LUACMSGPACK_NAME);
     lua_setfield(L, -2, "_NAME");
